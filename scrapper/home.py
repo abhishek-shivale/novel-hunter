@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from utilis.utils import getImage, get_scraper
+from utils.utils import getImage, get_scraper
 
 def home():
     scraper = get_scraper()

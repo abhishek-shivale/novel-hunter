@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import cloudscraper
-from utilis.utils import main
+from utils.utils import main
 scraper = cloudscraper.create_scraper()
 
 
