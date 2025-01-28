@@ -3,6 +3,9 @@ import cloudscraper
 def get_scraper():
     return cloudscraper.create_scraper()
 
+main = "https://ranobes.top"
+
+
 
 def getImage(poster_style):
     start = poster_style.find("background-image: url('") + len("background-image: url('")
