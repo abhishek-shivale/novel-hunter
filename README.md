@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="image.png" alt="Novel Hunter Logo" width="80">
+  <img src="image.png" alt="Novel Hunter Logo" width="120">
 </p>
 <p align="center" >
 Novel Hunter
