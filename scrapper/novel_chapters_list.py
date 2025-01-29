@@ -2,47 +2,45 @@ from bs4 import BeautifulSoup
 import re
 import cloudscraper
 import json
+from utils.utils import generate_new_url
 
 
-
-def getFile (main, number):
+def getFile(main, number):
     scraper = cloudscraper.create_scraper()
-    url = f"{main}/page/{number}" if number >= 2 else f"{main}"
-    print(url)
+    url = f"{main}/page/{number}" if int(number) >= 2 else f"{main}"
     return scraper.get(url).text
+
 
 def get_novel_chapters_list(main, number):
 
+    file = getFile(main, number)
 
-  file = getFile(main, number)
+    elements = BeautifulSoup(file, "html.parser")
 
-  elements = BeautifulSoup(file, "html.parser")
+    page = elements.select_one(".str_left")
 
-  page = elements.select_one('.str_left')
+    script_tag = page.find("script", string=re.compile(r"window\.__DATA__"))
 
-  chapters = page.select_one('.cat_block')
-  print(page)
+    script_content = script_tag.string
 
-  script_tag = page.find('script', string=re.compile(r'window\.__DATA__'))
+    match = re.search(r"window\.__DATA__\s*=\s*({.*})", script_content)
 
+    json_data = json.loads(match.group(1))
 
-  script_content = script_tag.string
+    book_title = json_data["book_title"]
 
-  match = re.search(r'window\.__DATA__\s*=\s*({.*})', script_content)
+    book_link = json_data["book_link"]
 
-  json_data = json.loads(match.group(1))
+    book_id = json_data["book_id"]
 
-  book_title = json_data["book_title"]
+    chapters = json_data["chapters"]
 
-  book_link = json_data["book_link"]
+    for chapter in chapters:
+        chapter["link"] = "/info" + generate_new_url(chapter["link"])
 
-  book_id = json_data["book_id"]
-
-  chapters = json_data['chapters']
-
-  return {
-     "book_title": book_title,
-     "book_link" : book_link,
-     "book_id" : book_id,
-     "chapters" : chapters
-  }
+    return {
+        "book_title": book_title,
+        "book_link": generate_new_url(book_link),
+        "book_id": book_id,
+        "chapters": chapters,
+    }
