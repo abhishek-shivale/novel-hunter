@@ -142,16 +142,6 @@ GET /info/novel-123/1
 
 ---
 
-## API Documentation
-
-To view the full API documentation, visit the `/docs` route in your browser:
-```
-http://127.0.0.1:5000/docs
-```
-
-This documentation will help you understand the available API endpoints and how to use them effectively.
-
-
 ### `requirements.txt` Example
 
 ```txt
