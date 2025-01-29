@@ -20,7 +20,6 @@ This project is designed to make it easier for users to discover and read their 
 - **Novel Information**: Fetches detailed information about a specific novel.
 - **Chapter List**: Displays a list of chapters for a specific novel.
 - **Chapter Information**: Shows detailed information for a specific chapter.
-- **API Documentation**: Full documentation of the API endpoints is available via `/docs` route.
 
 ---
 
