@@ -1,6 +1,14 @@
-# Novel Hunter API
+<p align="center" >
+  <img src="image.png" alt="Novel Hunter Logo" width="80">
+</p>
+<p align="center" >
+Novel Hunter
+</p>
 
-**Novel Hunter** is a Flask-based web application designed to provide novel rankings, chapter lists, and detailed novel information. It allows users to fetch top-ranked novels, retrieve chapter listings, and explore specific novel details via simple API endpoints.
+
+# Novel Hunter
+
+**Novel Hunter** is a Flask-based web scrapper designed to provide novel rankings, chapter lists, and detailed novel information. It allows users to fetch top-ranked novels, retrieve chapter listings, and explore specific novel details via simple API endpoints.
 
 This project is designed to make it easier for users to discover and read their favorite novels, with features like fetching top novels by category, viewing detailed novel information, and navigating through chapters.
 
@@ -124,7 +132,7 @@ GET /info/novel-123/1
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/novel-hunter.git
+   git clone https://github.com/abhishek-shivale/novel-hunter.git
    cd novel-hunter
    ```
 
@@ -168,4 +176,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-**Novel Hunter** is maintained by [Your Name](https://github.com/yourusername). Feel free to open an issue or contribute to the project!
+**Novel Hunter** is maintained by [abhishek](https://github.com/abhishek-shivale). Feel free to open an issue or contribute to the project!
