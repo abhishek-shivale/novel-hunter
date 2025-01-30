@@ -1,6 +1,6 @@
 from urllib.parse import urlparse
 import cloudscraper
-
+import re
 
 def get_scraper():
     return cloudscraper.create_scraper()
@@ -78,3 +78,29 @@ def generate_new_url(input_url):
     new_url = path
 
     return new_url
+
+
+headers = {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+    "accept-language": "en-US,en;q=0.8",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "priority": "u=0, i",
+    "sec-ch-ua": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Brave\";v=\"132\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "sec-gpc": "1",
+    "upgrade-insecure-requests": "1",
+}
+
+
+def extract_chapter_number(chapter_title):
+    match = re.match(r'Chapter (\d+)', chapter_title)
+    if match:
+        return int(match.group(1)) 
+    else:
+        return None

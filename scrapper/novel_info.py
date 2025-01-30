@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import cloudscraper
-from utils.utils import main, generate_new_url
+from utils.utils import main, generate_new_url, extract_chapter_number
 
 scraper = cloudscraper.create_scraper()
 
@@ -106,11 +106,17 @@ def get_novel_info(url):
         main + page.select(".r-fullstory-chapters-foot > .uppercase")[1]["href"]
     )
 
+    chapters = elements.select_one('.chapters-scroll-list > li')
+
+    latest_chapter = chapters.select_one('.ellipses').text
+
+
     return {
         "title": title,
         "content_small": content_small,
         "content_full": content_full,
         "banner": banner,
         "novel_info": novel_info,
-        "more_chapter": generate_new_url(more_chapter),
+        "more_chapter": generate_new_url(more_chapter) + '1',
+        "latest_chapter": extract_chapter_number(latest_chapter)
     }
