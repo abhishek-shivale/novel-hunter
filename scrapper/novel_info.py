@@ -15,19 +15,19 @@ def get_novel_info(url):
 
     title = (
         page.select_one(".title").text.strip()
-        if page.select_one(".title").text.strip()
+        if page.select_one(".title")
         else ""
     )
 
     content_small = (
         page.select_one(".moreless__short").text
-        if page.select_one(".moreless__short").text
+        if page.select_one(".moreless__short")
         else ""
     )
 
     content_full = (
         page.select_one(".moreless__full").text
-        if page.select_one(".moreless__full").text
+        if page.select_one(".moreless__full")
         else ""
     )
 
