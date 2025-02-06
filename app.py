@@ -44,7 +44,7 @@ def get_top_novel_list():
     try:
         novel_content = get_top_novel(novel_ranking_list[novel_time][novel_type])
     except Exception as e:
-        novel_content = f"Error: {str(e)} {novel_content}"
+        novel_content = f"Error: {str(e)}"
 
     return novel_content
 
@@ -60,7 +60,7 @@ def get_novel_info_list(url):
     try:
         novel_content = get_novel_info(full_url)
     except Exception as e:
-        novel_content = f"Error: {str(e)} {novel_content}"
+        novel_content = f"Error: {str(e)}"
     return novel_content
 
 
@@ -76,7 +76,7 @@ def get_chapters_list(url, number):
     try:
         novel_content = get_novel_chapters_list(full_url, number)
     except Exception as e:
-        novel_content = f"Error: {str(e)} {novel_content}"
+        novel_content = f"Error: {str(e)}"
     return novel_content
 
 
@@ -92,7 +92,7 @@ def get_chapter_info(url, id):
     try:
         novel_content = get_novel_chapter_info(full_url)
     except Exception as e:
-        novel_content = f"Error: {str(e)} {novel_content}"
+        novel_content = f"Error: {str(e)}"
     return jsonify(novel_content)
 
 
