@@ -4,7 +4,7 @@ from utils.utils import getImage, get_scraper, generate_new_url
 
 def home():
     scraper = get_scraper()
-    file = scraper.get("https://ranobes.top").text
+    file = scraper.get("https://ranobes.net").text
 
     elements = BeautifulSoup(file, "html.parser")
 
